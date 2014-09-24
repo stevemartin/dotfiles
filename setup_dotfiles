@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function ensure_link {
+  test -e "$2"
+  if [[ $? == 0 ]]
+  then
+    mv $1 "$1.orig"
+  fi
+  test -L "$2" || ln -s "$1" "$2"
+}
+
+cd $HOME/.switch_dotfiles/stevemartin
+
+ensure_link "${PWD}/.vim/vimrc" "$HOME/.vimrc"
+ensure_link "${PWD}/.vim" "$HOME/.vim"
+
