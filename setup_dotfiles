@@ -11,6 +11,17 @@ function ensure_link {
 
 cd $HOME/.switch_dotfiles/stevemartin
 
-ensure_link "${PWD}/.vim/vimrc" "$HOME/.vimrc"
-ensure_link "${PWD}/.vim" "$HOME/.vim"
+unlink $HOME/.vim
+unlink $HOME/.vimrc
 
+ln -s ${PWD}/.vim $HOME/.vim
+ln -s ${PWD}/.vim/vimrc $HOME/.vimrc
+
+cd $HOME/.vim/
+git submodule init
+git submodule update
+
+brew install vim --with-lua
+
+cd $HOME/.vim/bundle/vimproc
+make
