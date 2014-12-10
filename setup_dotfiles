@@ -23,9 +23,3 @@ git submodule update
 
 brew install vim --with-lua --with-ruby
 
-rvm use system
-
-vim +PluginInstall +qal
-
-cd $HOME/.vim/bundle/vimproc
-make
