@@ -23,3 +23,10 @@ git submodule update
 
 brew install vim --with-lua --with-ruby
 
+vim +PluginInstall +qal
+
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+
+cd $HOME/.vim/bundle/vimproc
+make
